@@ -6,7 +6,6 @@ import playing.PlayingGame;
 import playing.PlayingUpdateInterface;
 import playing.entities.EntityLevelManager;
 import playing.entities.player.Player;
-import playing.entities.player.playerModules.PlayerAnimation;
 import playing.levels.Level;
 
 import javax.sound.sampled.Port;
@@ -19,7 +18,6 @@ public class ObjectManager implements PlayingUpdateInterface, PlayingDrawInterfa
     private ArrayList<Spike> spikes;
     private ArrayList<Portal> portals;
     private ArrayList<Coin> coins;
-    private ArrayList<Pistol> pistols;
 
     public ObjectManager(EntityLevelManager entityLevelManager, Level level) {
         this.entityLevelManager = entityLevelManager;
@@ -30,7 +28,6 @@ public class ObjectManager implements PlayingUpdateInterface, PlayingDrawInterfa
         spikes = level.getSpikes();
         portals = level.getPortals();
         coins = level.getCoins();
-        pistols = level.getPistols();
     }
 
     @Override
@@ -47,11 +44,6 @@ public class ObjectManager implements PlayingUpdateInterface, PlayingDrawInterfa
                 coin.update();
             }
         }
-        for (Pistol pistol : pistols){
-            if (pistol.isActive()){
-                pistol.update();
-            }
-        }
     }
 
     @Override
@@ -59,7 +51,6 @@ public class ObjectManager implements PlayingUpdateInterface, PlayingDrawInterfa
         drawTraps(g, scale, lvlOffsetX, lvlOffsetY);
         drawPortals(g, scale, lvlOffsetX, lvlOffsetY);
         drawCoins(g, scale, lvlOffsetX, lvlOffsetY);
-        drawPistol(g, scale, lvlOffsetX, lvlOffsetY);
     }
 
 
@@ -82,13 +73,6 @@ public class ObjectManager implements PlayingUpdateInterface, PlayingDrawInterfa
             }
         }
     }
-    private void drawPistol(Graphics g, float scale, int lvlOffsetX, int lvlOffsetY) {
-        for (Pistol pistol : pistols) {
-            if (pistol.isActive()) {
-                pistol.draw(g, scale, lvlOffsetX, lvlOffsetY);
-            }
-        }
-    }
 
     public void checkSpikesTouched(Player p) {
         for (Spike s : spikes) {
@@ -104,17 +88,6 @@ public class ObjectManager implements PlayingUpdateInterface, PlayingDrawInterfa
                 if (coin.getHitBox().intersects(p.getHitBox())) {
                     p.addCoin(coin.getValue());
                     coin.setActive(false);
-                }
-            }
-        }
-    }
-
-    public void checkPistolsTouched(Player p) {
-        for (Pistol pistol : pistols) {
-            if (pistol.isActive()) {
-                if (pistol.getHitBox().intersects(p.getHitBox())) {
-                    pistol.setActive(false);
-                    p.setAnimationType(PlayerAnimation.AnimationType.PISTOL);
                 }
             }
         }

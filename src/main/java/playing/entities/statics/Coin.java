@@ -9,7 +9,6 @@ import java.awt.image.BufferedImage;
 
 import static utilz.Constants.GameConstants.ANI_SPEED_ENEMY;
 import static utilz.Constants.GameConstants.ANI_SPEED_OBJECT;
-import static utilz.Constants.GameWindowConstants.TILE_SIZE_DEFAULT;
 import static utilz.Constants.LvlConstants.Entity.Coin.*;
 import static utilz.Constants.TextureConstants.Entity.*;
 
@@ -30,7 +29,7 @@ public class Coin extends ObjectEntity implements PlayingDrawInterface, PlayingU
             loadImages();
         } else {
             coinValue = 5;
-            setHitBoxTexture(x + (TILE_SIZE_DEFAULT-COIN_5_WIDTH_DEFAULT)/2, y+TILE_SIZE_DEFAULT-COIN_5_HEIGHT_DEFAULT, COIN_5_WIDTH_DEFAULT, COIN_5_HEIGHT_DEFAULT);
+            setHitBoxTexture(x - DIFF_SIZE_WIDTH/2, y-DIFF_SIZE_HEIGHT, COIN_5_WIDTH_DEFAULT, COIN_5_HEIGHT_DEFAULT);
             loadImages();
         }
     }
