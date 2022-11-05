@@ -109,6 +109,7 @@ public class Constants {
                 public static final int OBJECT_INDEX_SPIKE_RIGHT = 4;
                 public static final int OBJECT_INDEX_COIN = 65;
                 public static final int OBJECT_INDEX_COIN_5 = 66;
+                public static final int OBJECT_INDEX_PISTOL = 160;
                 public static final int OBJECT_INDEX_PORTAL = 108;
             }
 
@@ -135,8 +136,6 @@ public class Constants {
                 public static final int COIN_HEIGHT_DEFAULT = 32;
                 public static final int COIN_5_WIDTH_DEFAULT = 40;
                 public static final int COIN_5_HEIGHT_DEFAULT = 40;
-                public static final double DIFF_SIZE_WIDTH = COIN_5_WIDTH_DEFAULT - COIN_WIDTH_DEFAULT;
-                public static final double DIFF_SIZE_HEIGHT = COIN_5_HEIGHT_DEFAULT - COIN_HEIGHT_DEFAULT;
             }
 
             public static final class CRABBY {
@@ -145,6 +144,12 @@ public class Constants {
 
                 public static final int CRABBY_VIEW_RANGE = TILE_SIZE_DEFAULT * 5;
                 public static final int CRABBY_ATTACK_RANGE = TILE_SIZE_DEFAULT;
+            }
+
+            public static final class Pistol {
+                public static final int PISTOL_WIDTH_DEFAULT = 32;
+                public static final int PISTOL_HEIGHT_DEFAULT = 32;
+
             }
         }
 
@@ -211,6 +216,7 @@ public class Constants {
             public static final String PLAYER_LOCATION_TEXTURES = "player";
 
             public static final String PLAYER_SPRITES_PNG = "player_sprites.png";
+            public static final String PLAYER_WITH_PISTOL_SPRITES_PNG = "player_pistol.png";
             public static final String HEALTH_POWER_BAR = "health_power_bar.png";
 
         }
@@ -223,6 +229,7 @@ public class Constants {
             public static final String TRAP_ATLAS_PNG = "trap_atlas.png";
             public static final String PORTAL_ATLAS_PNG = "portal_atlas.png";
             public static final String CRABBY_SPRITE_PNG = "crabby_sprite.png";
+            public static final String PISTOL_ATLAS_PNG = "pistol_atlas.png";
         }
 
         public static final class Number {
